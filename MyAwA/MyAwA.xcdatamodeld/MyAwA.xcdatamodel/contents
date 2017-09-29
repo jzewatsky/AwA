@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SavedArray" representedClassName=".SavedArray" syncable="YES">
+        <attribute name="array" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="support" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="times" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <entity name="StoryArray" representedClassName=".StoryArray" syncable="YES">
+        <attribute name="storyImages" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="storyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storyText" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SavedArray" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="StoryArray" positionX="-63" positionY="0" width="128" height="90"/>
+    </elements>
+</model>
