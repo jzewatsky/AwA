@@ -803,11 +803,11 @@
 					C2F9EFCD19833D8B0061C30F = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = V76JUK2MXN;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 					};
 					C2F9EFE219833D8B0061C30F = {
 						CreatedOnToolsVersion = 6.0;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = C2F9EFCD19833D8B0061C30F;
 					};
 				};
@@ -1274,6 +1274,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = MyAwA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -1281,7 +1282,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.athleteswithautism.MyAwA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -1293,6 +1294,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = MyAwA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -1300,7 +1302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.athleteswithautism.MyAwA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -1320,7 +1322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.athleteswithautism.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "713b7372-63ef-45ae-8017-8ed2855e3c7c";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -1336,7 +1338,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.athleteswithautism.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "713b7372-63ef-45ae-8017-8ed2855e3c7c";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

@@ -116,19 +116,19 @@ var cellNames = Array<NSString>()
 class ViewController: UIViewController, UICollectionViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
 LoadTableViewControllerDelegate {
   @IBOutlet weak var progress: UIProgressView!
-    let moveImageView = UIImageView()
-    var beganOnMove = NSInteger()
-    var indexPathFrame = CGRect()
-    var hitRec = CGRect()
-    var name = NSString()
-    var hitTheTarget = Bool()
-    var tempName = NSString()
-    var pointAtTouch = CGPoint()
-    var targetRec = CGRect()
-    var locationInView = CGRect()
-    var delegate:LoadTableViewController?
-    var timerImage = UIImage()
-    var timeForTimer = Int()
+    @objc let moveImageView = UIImageView()
+    @objc var beganOnMove = NSInteger()
+    @objc var indexPathFrame = CGRect()
+    @objc var hitRec = CGRect()
+    @objc var name = NSString()
+    @objc var hitTheTarget = Bool()
+    @objc var tempName = NSString()
+    @objc var pointAtTouch = CGPoint()
+    @objc var targetRec = CGRect()
+    @objc var locationInView = CGRect()
+    @objc var delegate:LoadTableViewController?
+    @objc var timerImage = UIImage()
+    @objc var timeForTimer = Int()
 
     @IBOutlet weak var breakProgressView: UIProgressView!
     @IBOutlet weak var globalTimerLabel: UILabel!
@@ -229,11 +229,11 @@ LoadTableViewControllerDelegate {
     
 
     class sharedData: NSObject{
-        var storyText = NSArray()
-        var storyImage = NSArray()
+        @objc var storyText = NSArray()
+        @objc var storyImage = NSArray()
     }
     
-    func reloadCollectionView(_ controller: LoadTableViewController) {
+    @objc func reloadCollectionView(_ controller: LoadTableViewController) {
        // //NSLog("trying to reload")
         topCollectionView!.reloadData()
     }
@@ -401,7 +401,7 @@ LoadTableViewControllerDelegate {
       //  HideOptionsView()
     //}
 
-    func buildStory(){
+    @objc func buildStory(){
         topCollectionView!.reloadData()
         
         let appDel:AppDelegate = (UIApplication.shared.delegate)as! AppDelegate
@@ -627,12 +627,12 @@ else{
         }
         
     }
-    func getDocumentsDirectory() -> NSString {
+    @objc func getDocumentsDirectory() -> NSString {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         return documentsDirectory as NSString
     }
-    func getImages(_ sender: AnyObject){
+    @objc func getImages(_ sender: AnyObject){
         images.removeAll(keepingCapacity: true)
         tempMovieNames.removeAll(keepingCapacity: true)
         tempMovies.removeAll(keepingCapacity: true)
@@ -720,7 +720,7 @@ else{
         buildArrays()
 
     }
-    func buildArrays(){
+    @objc func buildArrays(){
         mainArray.removeAll(keepingCapacity: true)
         schedSection.removeAll(keepingCapacity: true)
         swimSection.removeAll(keepingCapacity: true)
@@ -759,7 +759,7 @@ else{
         
         
     }
-    func dismissPopover(_: Notification) {
+    @objc func dismissPopover(_: Notification) {
         ////NSLog("Notification Received")
         images2 = mainGlobalArray.tempImages2
         topCollectionView!.reloadData()
@@ -778,7 +778,7 @@ else{
         topCollectionView!.reloadData()
         
     }
-    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
+    @objc func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
         var x = Int()
         if collectionView.tag == 1{
             x = 5
@@ -797,7 +797,7 @@ else{
     }
     
 
-    func collectionView(_ collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
+    @objc func collectionView(_ collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
     {
         
         if collectionView.tag == 1{
@@ -830,7 +830,7 @@ else{
     }
 
     
-    func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> HomeCollectionViewCell!
+    @objc func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> HomeCollectionViewCell!
     {
         
         
@@ -1051,7 +1051,7 @@ else{
         else
         { return nil}
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         //let currentSize = collectionViewLayout.collectionViewContentSize()
         //let currentSize = topCollectionView?.collectionViewLayout.collectionViewContentSize()
         let currentSize = self.view.frame
@@ -1080,7 +1080,7 @@ else{
         return CGSize(width: picDimensionW, height: picDimensionH)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
+    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
     {
 
         var count = CGFloat()
@@ -1125,14 +1125,14 @@ else{
         }
         return inset
         }
-    func whatsInTheArray(){
+    @objc func whatsInTheArray(){
             /*for (index, value) in cellLocations.enumerate() {
                 ////println("Item \(index): \(value) with name \(cellNames[index]) at \(cellLocations[index])")
             }*/
             
         }
 
-    func collectionView(_ collectionView: UICollectionView!, viewForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: IndexPath!) -> UICollectionReusableView! {
+    @objc func collectionView(_ collectionView: UICollectionView!, viewForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: IndexPath!) -> UICollectionReusableView! {
         var reusableView: UICollectionReusableView? = nil
         let myLabel = UILabel()
         //var labelText = String()
@@ -1201,7 +1201,7 @@ else{
         }
     }
 
-    func deleteSuccessful(){
+    @objc func deleteSuccessful(){
         let action : UIAlertController = UIAlertController(title: "Image successfully deleted.", message: "The image you selected has been successfully deleted.", preferredStyle: UIAlertControllerStyle.alert)
         
         action.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { alertAction in
@@ -1211,7 +1211,7 @@ else{
             }))
         self.present(action, animated: true, completion: nil)
     }
-    func update() {
+    @objc func update() {
         if timerCF > -1{
         // let intTimer = timerCF as Int
         // //NSLog("Update Time - %i seconds",intTimer)
@@ -1354,7 +1354,7 @@ else{
         y:recognizer.view.center.y + translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.view)*/
     }
-    func hitTarget(){
+    @objc func hitTarget(){
         NSLog("hitTarget")
         hitTheTarget = true
         moveImageView.image = nil
@@ -1372,7 +1372,7 @@ else{
         //pointAtTouch = recognizer.locationInView(self.view)
         scheduleCount += 1
     }
-    func endOfArray(){
+    @objc func endOfArray(){
         if theGameSwitch.isOn{
             gameState = true
         }
@@ -1395,7 +1395,7 @@ else{
             }*/
         }
     }*/
-       func whatthewhat(){
+       @objc func whatthewhat(){
         //print("What the what?")
         let newY = CGFloat(self.view.frame.maxY - (OptionsView.frame.height/2))
         OptionsView.center = CGPoint(x: 512, y: newY)
@@ -1443,7 +1443,7 @@ else{
         }
     }
     
-    func findStory()
+    @objc func findStory()
     {
         var resText = Array<NSString>()
         var resImages = Array<NSString>()
@@ -1638,7 +1638,7 @@ else{
         
     }
     
-    func reloadTopCollectionView(){
+    @objc func reloadTopCollectionView(){
         images2 = mainGlobalArray.tempImages2
        //print("Images2: /(images2")  
         topCollectionView!.reloadData()
@@ -1646,7 +1646,7 @@ else{
 
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!){
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!){
         let selectedImage: UIImage = image
       ////println("i've got an image: \(selectedImage)")
         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
@@ -1682,7 +1682,7 @@ else{
         
     }
     
-    func doWeHaveAFile(){
+    @objc func doWeHaveAFile(){
         if fileExists{
             
             let action : UIAlertController = UIAlertController(title: "Success", message: "The image you selected has been added and is available to be added to the schedule", preferredStyle: UIAlertControllerStyle.alert)
@@ -1782,7 +1782,7 @@ else{
         topCollectionView!.reloadData()
     }
 
-    func globalTimer() {
+    @objc func globalTimer() {
         //print("globalTimer with \(mainGlobalArray.globaltimer)")
         let minutes = Int(mainGlobalArray.globaltimer) / 60
         let minAsSeconds = minutes * 60
@@ -1794,14 +1794,14 @@ else{
         globalTimerLabel.text = "\(strMinutes):\(strSeconds)"
         
     }
-    func globalTimerIncrement() {
+    @objc func globalTimerIncrement() {
         //print("globalTimerIncrement - globaltimer = \(mainGlobalArray.globaltimer)")
         let lessOneSecond = mainGlobalArray.globalTimerStartValue - 1
         increment = 1 / lessOneSecond
         //print("Increment \(increment) & increment as Float = \(Float(increment))")
         theGlobalTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
     }
-    func updateTimer(){
+    @objc func updateTimer(){
         //print("Update Timer - the progress is \(progress.progress)")
         time = time + 1
         mainGlobalArray.globaltimer = mainGlobalArray.globaltimer - 1
@@ -1896,7 +1896,7 @@ else{
         }
     }
 */
-    func globalTimerButton(_ status:Bool){
+    @objc func globalTimerButton(_ status:Bool){
         if theGlobalTimer.isValid {
             theGlobalTimer.invalidate()
             breakTime = 0

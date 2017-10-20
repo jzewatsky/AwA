@@ -21,8 +21,8 @@ There is no need to actually create view controllers for each page in advance --
 
     class ModelController: NSObject, UIPageViewControllerDataSource {
         
-        var pageData = mainGlobalArray.storyText
-        var imageData = mainGlobalArray.storyImage
+        @objc var pageData = mainGlobalArray.storyText
+        @objc var imageData = mainGlobalArray.storyImage
         
         
         
@@ -36,7 +36,7 @@ There is no need to actually create view controllers for each page in advance --
 
         }
     
-    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
+    @objc func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
         // Return the data view controller for the given index.
         if (self.pageData.count == 0) || (index >= self.pageData.count) {
             return nil
@@ -52,7 +52,7 @@ There is no need to actually create view controllers for each page in advance --
         return dataViewController
     }
     
-    func indexOfViewController(_ viewController: DataViewController) -> Int {
+    @objc func indexOfViewController(_ viewController: DataViewController) -> Int {
         // Return the index of the given data view controller.
         // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
         return self.pageData.index(of: viewController.dataObject!)

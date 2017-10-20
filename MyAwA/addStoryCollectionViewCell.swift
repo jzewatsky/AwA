@@ -26,7 +26,7 @@ class addStoryCollectionViewCell: UICollectionViewCell {
         
         layoutIfNeeded()
     }
-    func startJiggling()
+    @objc func startJiggling()
     {
  //print("startJiggling was fired")
         

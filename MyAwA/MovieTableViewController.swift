@@ -12,9 +12,9 @@ import MediaPlayer
 
 
 class MovieTableViewController: UITableViewController {
-    var mediaPlayer: AVPlayerViewController = AVPlayerViewController()
-    var myURL:NSURL = NSURL()
-    var myString:String = String()
+    @objc var mediaPlayer: AVPlayerViewController = AVPlayerViewController()
+    @objc var myURL:NSURL = NSURL()
+    @objc var myString:String = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()

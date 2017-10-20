@@ -9,8 +9,8 @@ import AVFoundation
 import AVKit
 
 class MoviePlayerViewController: AVPlayerViewController {
-    let somePlayerViewController = AVPlayerViewController()
-    var urlString = String()
+    @objc let somePlayerViewController = AVPlayerViewController()
+    @objc var urlString = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         //println("Movie Player Did Load")
@@ -43,11 +43,11 @@ class MoviePlayerViewController: AVPlayerViewController {
 
     
     
-    func PlayToEndTime (_ sender: AnyObject) {
+    @objc func PlayToEndTime (_ sender: AnyObject) {
        // println("Played to end time.")
         self.dismiss(animated: true, completion: nil)
     }
-    func didFinishPlaying (_ sender : AnyObject?){
+    @objc func didFinishPlaying (_ sender : AnyObject?){
       //  println("Movie Finished Playing.")
     }
 

@@ -13,17 +13,17 @@ import Foundation
 
 
 class TimerViewController: UIViewController{
-    var timerViewImageString = String()
-    var nexttimerViewImageString = String()
-    var timerTime = Int()
-    var path = UIBezierPath()
-    var time = Double()
-    var linew = CGFloat()
-    var timer = Timer()
-    var aSwitch = String("A")
-    var newTimerViewImage = UIImageView()
+    @objc var timerViewImageString = String()
+    @objc var nexttimerViewImageString = String()
+    @objc var timerTime = Int()
+    @objc var path = UIBezierPath()
+    @objc var time = Double()
+    @objc var linew = CGFloat()
+    @objc var timer = Timer()
+    @objc var aSwitch = String("A")
+    @objc var newTimerViewImage = UIImageView()
     @IBOutlet weak var timerDoneLabel: UILabel!
-    let ovalEndAngle = CGFloat(270 * M_PI/180)
+    @objc let ovalEndAngle = CGFloat(270 * M_PI/180)
     @IBOutlet weak var timerViewImage: UIImageView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startTimer: UIButton!
@@ -102,7 +102,7 @@ class TimerViewController: UIViewController{
         
     
     }
-    func update() {
+    @objc func update() {
         NSLog("Update Time - %i seconds",time)
         time = time - 1
         minutes = Int(time / 60)

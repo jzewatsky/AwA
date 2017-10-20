@@ -17,16 +17,16 @@ class SettingsController: UIViewController{
     @IBOutlet weak var Picker: UIPickerView!
     @IBOutlet weak var PickerSegmentedControl: UISegmentedControl!
     @IBOutlet weak var settingsImage: UIImageView!
-    var settingsImageString = String()
+    @objc var settingsImageString = String()
     @IBOutlet weak var settingsDelete: UIButton!
-    var settingsTimeInt = Int()
-    var settingsSupport = NSString()
-    var StoryResultsArray = NSArray()
-    var selectedStory = NSString()
+    @objc var settingsTimeInt = Int()
+    @objc var settingsSupport = NSString()
+    @objc var StoryResultsArray = NSArray()
+    @objc var selectedStory = NSString()
     @IBOutlet weak var TimerLabel: UILabel!
-    var SettingsMovieTitles = mainGlobalArray.movieTitles
-    var StartingSelectedStory = NSString()
-    var settingsTag = Int()
+    @objc var SettingsMovieTitles = mainGlobalArray.movieTitles
+    @objc var StartingSelectedStory = NSString()
+    @objc var settingsTag = Int()
     @IBOutlet weak var timeStepper: UIStepper!
 override func viewDidLoad() {
     print("What is the settings tag in Options View? \(settingsTag)")
@@ -89,7 +89,7 @@ override func viewDidLoad() {
         TimerLabel.text = "\(strMinutes):\(strSeconds)"
     }
     
-    func updateTimerLabel(){
+    @objc func updateTimerLabel(){
         let myMinutes = settingsTimeInt  / 60
         let myMinAsSeconds = myMinutes * 60
         let mySeconds = settingsTimeInt - myMinAsSeconds
@@ -99,10 +99,10 @@ override func viewDidLoad() {
         TimerLabel.text = "\(myStrMinutes):\(myStrSeconds)"
 
     }
-    func numberOfComponentsInPickerView(_ pickerView: UIPickerView) -> Int {
+    @objc func numberOfComponentsInPickerView(_ pickerView: UIPickerView) -> Int {
         return 1
     }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    @objc func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var rowCount = Int()
         if PickerSegmentedControl.selectedSegmentIndex == 0{
         rowCount = StoryResultsArray.count
@@ -115,7 +115,7 @@ override func viewDidLoad() {
         }
         return rowCount
     }
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
+    @objc func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
     {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.white
@@ -149,7 +149,7 @@ override func viewDidLoad() {
             if finalStringString[characterAt3] == "C"{
                 print("4th character is c, add Clip to title")
                 let clipString = String(" Clip")
-                finalStringString = finalStringString + clipString!
+                finalStringString = finalStringString + clipString
                 
             }
             let advance = finalStringString.characters.index(finalStringString.startIndex, offsetBy: 5)
@@ -192,7 +192,7 @@ override func viewDidLoad() {
     }
         Picker.reloadAllComponents()
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    @objc func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         var selectedLabel = NSString()
         
         if PickerSegmentedControl.selectedSegmentIndex == 0{
@@ -223,7 +223,7 @@ override func viewDidLoad() {
                 if finalString[characterAt3] == "C"{
                     print("4th character is c, add Clip to title")
                     let clipString = String(" Clip")
-                    finalString = finalString + clipString!
+                    finalString = finalString + clipString
                 
                 }
                 let advance = finalString.characters.index(finalString.startIndex, offsetBy: 5)

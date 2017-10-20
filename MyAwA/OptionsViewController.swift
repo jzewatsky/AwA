@@ -12,16 +12,16 @@ import UIKit
 
 
 class OptionsViewController: UIViewController, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-var deleteFromBottom = Bool(false)
-var setTag = Int()
-var imageName = NSString()
-var tempTime = Int()
-var tempSupport = String()
+@objc var deleteFromBottom = Bool(false)
+@objc var setTag = Int()
+@objc var imageName = NSString()
+@objc var tempTime = Int()
+@objc var tempSupport = String()
 @IBOutlet var addCollectionView: UICollectionView?
     
 @IBOutlet var copyCollectionView: UICollectionView?
 
-let imagePicker = UIImagePickerController()
+@objc let imagePicker = UIImagePickerController()
 
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,12 +29,12 @@ override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(OptionsViewController.loadList(_:)), name:NSNotification.Name(rawValue: "load"), object: nil)
 
     }
-func loadList(_ notification: Notification){
+@objc func loadList(_ notification: Notification){
     ////print("load List was notified and did fire")
     copyCollectionView!.reloadData()
 
     }
-func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
+@objc func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
     var x = Int()
         x = 5
     if collectionView.tag == 3
@@ -47,7 +47,7 @@ func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int
     
 
 
-func collectionView(_ collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
+@objc func collectionView(_ collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
 {
 
         imageCount = mainArray[section].count
@@ -73,7 +73,7 @@ func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: U
         }
     }
 
-func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
+@objc func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
 {
     
     if collectionView.tag == 3
@@ -126,7 +126,7 @@ func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath 
     { return nil}
     
 }
-func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+@objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
 
     var  picDimensionW = Int()
     var  picDimensionH = Int()
@@ -189,7 +189,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 }
 */
 
-func collectionView(_ collectionView: UICollectionView!, viewForSupplementaryElementOfKind kind: String!,
+@objc func collectionView(_ collectionView: UICollectionView!, viewForSupplementaryElementOfKind kind: String!,
     atIndexPath indexPath: IndexPath!) -> UICollectionReusableView! {
         if collectionView.tag == 3
         {
@@ -339,7 +339,7 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
     
     
     
-    func getSavedPhotos(_ sender: AnyObject) {
+    @objc func getSavedPhotos(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum){
             //////println("Button capture")
             
@@ -356,7 +356,7 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
         }
     }
     
-    func getCamera(_ sender: AnyObject) {
+    @objc func getCamera(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             //////println("Button capture")
             
@@ -371,7 +371,7 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
         }
     }
     
-    func getPhotoLibrary(_ sender: AnyObject) {
+    @objc func getPhotoLibrary(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             //////println("Button capture")
             
@@ -385,12 +385,12 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
             //////println("PhotoLibrary not available")
         }
     }
-    func getDocumentsDirectory() -> NSString {
+    @objc func getDocumentsDirectory() -> NSString {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         return documentsDirectory as NSString
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!){
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!){
         let selectedImage: UIImage = image
         //////println("i've got an image: \(selectedImage)")
         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
@@ -450,7 +450,7 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
         
     }
     
-    func doWeHaveAFile(){
+    @objc func doWeHaveAFile(){
         if fileExists{
             
             let action : UIAlertController = UIAlertController(title: "Success", message: "The image you selected has been added and is available to be added to the schedule", preferredStyle: UIAlertControllerStyle.alert)
@@ -470,7 +470,7 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
     @IBAction func rightButtonPress(_ sender: UIButton) {
         //////print("rightButton \(sender.tag)")
         var tempArray = images2
-        swap(&tempArray[sender.tag], &tempArray[sender.tag + 1])
+        tempArray.swapAt(sender.tag, sender.tag + 1)
         images2 = tempArray
         swap(&scheduleTimes[sender.tag], &scheduleTimes[sender.tag + 1])
         swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag + 1])
@@ -481,7 +481,7 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
     @IBAction func leftButtonPress(_ sender: UIButton) {
         ////print("leftButton \(sender.tag)")
         var tempArray = images2
-        swap(&tempArray[sender.tag], &tempArray[sender.tag - 1])
+        tempArray.swapAt(sender.tag, sender.tag - 1)
         images2 = tempArray
         swap(&scheduleTimes[sender.tag], &scheduleTimes[sender.tag - 1])
         swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag - 1])

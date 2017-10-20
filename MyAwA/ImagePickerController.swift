@@ -13,7 +13,7 @@ class imagePickerController: UIViewController, UIImagePickerControllerDelegate {
     
         
     
-    func getSavedPhotos(sender: AnyObject) {
+    @objc func getSavedPhotos(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum){
             //println("Button capture")
             
@@ -28,7 +28,7 @@ class imagePickerController: UIViewController, UIImagePickerControllerDelegate {
         }
     }
     
-    func getCamera(sender: AnyObject) {
+    @objc func getCamera(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             //println("Button capture")
             
@@ -43,7 +43,7 @@ class imagePickerController: UIViewController, UIImagePickerControllerDelegate {
         }
     }
     
-    func getPhotoLibrary(sender: AnyObject) {
+    @objc func getPhotoLibrary(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             //println("Button capture")
             

@@ -29,16 +29,16 @@ class TakeABreak: UIViewController{
     @IBOutlet weak var button3Min: UIButton!
     @IBOutlet weak var timerDoneLabel: UILabel!
     @IBOutlet weak var timerUIView: UIView!
-    var time = Double()
-    var whatisthefromtime = Double()
-    var animationProgress = Double()
-    var rotate = Bool(false)
-    let ovalEndAngle = CGFloat(270 * M_PI/180)
-    var ovalPath = UIBezierPath()
-    var ovalPath2 = UIBezierPath()
-    let progressLine = CAShapeLayer()
-    let strokeLine = CAShapeLayer()
-    let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+    @objc var time = Double()
+    @objc var whatisthefromtime = Double()
+    @objc var animationProgress = Double()
+    @objc var rotate = Bool(false)
+    @objc let ovalEndAngle = CGFloat(270 * M_PI/180)
+    @objc var ovalPath = UIBezierPath()
+    @objc var ovalPath2 = UIBezierPath()
+    @objc let progressLine = CAShapeLayer()
+    @objc let strokeLine = CAShapeLayer()
+    @objc let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
     override func viewDidLoad() {
         print("Break View Loaded")
         
@@ -64,7 +64,7 @@ class TakeABreak: UIViewController{
     }
     
     
-func setupPath(){
+@objc func setupPath(){
 
     /*timer.invalidate()
     progressLine.removeAllAnimations()
@@ -154,7 +154,7 @@ func setupPath(){
         
         
     }
-    func update() {
+    @objc func update() {
 
         print("Update Time \(time)seconds")
         time = time - 1

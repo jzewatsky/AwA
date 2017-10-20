@@ -14,7 +14,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-    var forsource: UIView?
+    @objc var forsource: UIView?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    func saveContext () {
+    @objc func saveContext () {
         var error: NSError? = nil
         let managedObjectContext = self.managedObjectContext
        // if managedObjectContext != nil {
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Returns the managed object context for the application.
     // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-    var managedObjectContext: NSManagedObjectContext {
+    @objc var managedObjectContext: NSManagedObjectContext {
         if !(_managedObjectContext != nil) {
             let coordinator = self.persistentStoreCoordinator
             
@@ -79,22 +79,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return _managedObjectContext!
     }
-    var _managedObjectContext: NSManagedObjectContext? = nil
+    @objc var _managedObjectContext: NSManagedObjectContext? = nil
 
     // Returns the managed object model for the application.
     // If the model doesn't already exist, it is created from the application's model.
-    var managedObjectModel: NSManagedObjectModel {
+    @objc var managedObjectModel: NSManagedObjectModel {
         if !(_managedObjectModel != nil) {
             let modelURL = Bundle.main.url(forResource: "MyAwA", withExtension: "momd")
             _managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
         }
         return _managedObjectModel!
     }
-    var _managedObjectModel: NSManagedObjectModel? = nil
+    @objc var _managedObjectModel: NSManagedObjectModel? = nil
 
     // Returns the persistent store coordinator for the application.
     // If the coordinator doesn't already exist, it is created and the application's store added to it.
-    var persistentStoreCoordinator: NSPersistentStoreCoordinator {
+    @objc var persistentStoreCoordinator: NSPersistentStoreCoordinator {
         if !(_persistentStoreCoordinator != nil) {
             let storeURL = self.applicationDocumentsDirectory.appendingPathComponent("MyAwA.sqlite")
             var error: NSError? = nil
@@ -133,12 +133,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return _persistentStoreCoordinator!
     }
-    var _persistentStoreCoordinator: NSPersistentStoreCoordinator? = nil
+    @objc var _persistentStoreCoordinator: NSPersistentStoreCoordinator? = nil
 
     // #pragma mark - Application's Documents directory
                                     
     // Returns the URL to the application's Documents directory.
-    var applicationDocumentsDirectory: URL {
+    @objc var applicationDocumentsDirectory: URL {
     
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             //println("DocDirectory \(urls)")

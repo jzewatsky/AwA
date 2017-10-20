@@ -17,27 +17,27 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
     @IBOutlet weak var dataImage: UIImageView?
     @IBOutlet var dataLabel: UILabel?
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
-    var dataObject: AnyObject?
-    var pageCount = String()
-    var arrayCount = String()
-    var message = String()
-    var imagArray = Array<NSString>()
-    var arrayOfImages = Array<NSString>()
-    var imageName = String()
-    var theStoryName = String()
-    var arrayOfText = Array<NSString>()
-    var dataObject2: AnyObject?
-    let cellIdentifier = "CellIdentifier"
-    var textFieldStart = CGRect()
-    var tF = UITextField()
+    @objc var dataObject: AnyObject?
+    @objc var pageCount = String()
+    @objc var arrayCount = String()
+    @objc var message = String()
+    @objc var imagArray = Array<NSString>()
+    @objc var arrayOfImages = Array<NSString>()
+    @objc var imageName = String()
+    @objc var theStoryName = String()
+    @objc var arrayOfText = Array<NSString>()
+    @objc var dataObject2: AnyObject?
+    @objc let cellIdentifier = "CellIdentifier"
+    @objc var textFieldStart = CGRect()
+    @objc var tF = UITextField()
     @IBOutlet weak var collectionView: UICollectionView!
     //@IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var storyTextField: UITextField!
     @IBOutlet weak var pageStatus: UILabel!
     @IBOutlet weak var storyTableImage: UIView!
-    var startPoint = CGPoint()
-    let screenWidth = UIScreen.main.bounds.size.width
-    let screenHeight = UIScreen.main.bounds.size.height
+    @objc var startPoint = CGPoint()
+    @objc let screenWidth = UIScreen.main.bounds.size.width
+    @objc let screenHeight = UIScreen.main.bounds.size.height
 
     @IBOutlet weak var storyAdd1: UIView!
     @IBOutlet weak var storyName: UITextField!
@@ -106,7 +106,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         
     }
     }
-    func setupImages(){
+    @objc func setupImages(){
         imagArray.removeAll(keepingCapacity: true)
         //let paths2 = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
         let mainBundlePath = Bundle.main.bundlePath
@@ -154,7 +154,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         }
         reloadCollectionView()
     }
-    func reloadCollectionView(){
+    @objc func reloadCollectionView(){
         collectionView.reloadData()
         print("reload collection view")
     }
@@ -206,7 +206,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
           // self.dataImage!.image = nil
         }
     }
-    var activeField: UITextField?
+    @objc var activeField: UITextField?
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -218,7 +218,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         return true
     }
     
-    func keyboardNotificationExit(notification: NSNotification) {
+    @objc func keyboardNotificationExit(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -237,7 +237,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
                            completion: nil)
     }
     }
-    func keyboardNotification(notification: NSNotification) {
+    @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -296,12 +296,12 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         
 
     }*/
-    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
+    @objc func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
 
         return 1
         
     }
-    func collectionView(_ collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
+    @objc func collectionView(_ collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
     {
         
         return imagArray.count
@@ -309,7 +309,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
     }
     
     
-    func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
+    @objc func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
     {
 
             
@@ -340,14 +340,14 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         
         clearFields()
     }
-    func clearFields(){
+    @objc func clearFields(){
         imageName = ""
         storyTextField.text = ""
         dataImage?.image = nil
         pageLabel.text = "Pages in this story: \(arrayOfText.count)"
         
     }
-    func whatsInTheField(){
+    @objc func whatsInTheField(){
         var match = Bool(false)
         if tF.text == "" {
             message = "The story needs a name!"
@@ -385,10 +385,10 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         }
 
     }
-    func clearTextField(){
+    @objc func clearTextField(){
         tF.text = nil
     }
-    func saveTheStory(){
+    @objc func saveTheStory(){
         
             arrayOfImages.append(imageName as NSString)
             arrayOfText.append(storyTextField.text! as NSString)
@@ -432,13 +432,13 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         action.addAction(cancel)
         self.present(action, animated: true, completion: nil)
     }
-    func getDocumentsDirectory() -> NSString {
+    @objc func getDocumentsDirectory() -> NSString {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         return documentsDirectory as NSString
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!){
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!){
         let selectedImage: UIImage = image
       //println("i've got an image: \(selectedImage)")
         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
@@ -486,7 +486,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         }
     }
     
-    func doWeHaveAFile(){
+    @objc func doWeHaveAFile(){
         print("fileExists?: \(fileExists)")
         if fileExists{
             
@@ -537,7 +537,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
 
 
     
-    func getSavedPhotos(_ sender: AnyObject) {
+    @objc func getSavedPhotos(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum){
             //println("Button capture")
             
@@ -553,7 +553,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         }
     }
     
-    func getCamera(_ sender: AnyObject) {
+    @objc func getCamera(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             //println("Button capture")
             
@@ -569,7 +569,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         }
     }
     
-    func getPhotoLibrary(_ sender: AnyObject) {
+    @objc func getPhotoLibrary(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             //println("Button capture")
             
