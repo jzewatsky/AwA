@@ -472,8 +472,8 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
         var tempArray = images2
         tempArray.swapAt(sender.tag, sender.tag + 1)
         images2 = tempArray
-        swap(&scheduleTimes[sender.tag], &scheduleTimes[sender.tag + 1])
-        swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag + 1])
+        //swap(&scheduleTimes[sender.tag], &scheduleTimes[sender.tag + 1])
+        //swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag + 1])
         
         copyCollectionView?.reloadData()
         
@@ -483,8 +483,8 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
         var tempArray = images2
         tempArray.swapAt(sender.tag, sender.tag - 1)
         images2 = tempArray
-        swap(&scheduleTimes[sender.tag], &scheduleTimes[sender.tag - 1])
-        swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag - 1])
+        //swap(&scheduleTimes[sender.tag], &scheduleTimes[sender.tag - 1])
+        //swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag - 1])
         copyCollectionView?.reloadData()
     }
     override func prepare(for segue: (UIStoryboardSegue!), sender: Any!)

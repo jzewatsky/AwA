@@ -102,13 +102,14 @@ class LoadTableViewController: UITableViewController {
         return tableCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var res = Array<NSString>()
+        //var res = Array<NSString>()
         
-        res = (resultsArray[(indexPath as NSIndexPath).row] as AnyObject).value(forKey: "array") as! Array
+        images2 = (resultsArray[(indexPath as NSIndexPath).row] as AnyObject).value(forKey: "array") as! Array
+        //res = (resultsArray[(indexPath as NSIndexPath).row] as AnyObject).value(forKey: "array") as! Array
         scheduleTimes = (resultsArray[(indexPath as NSIndexPath).row] as AnyObject).value(forKey: "times") as! Array
         scheduleSupport = (resultsArray[(indexPath as NSIndexPath).row] as AnyObject).value(forKey: "support") as! Array
-        mainGlobalArray.tempImages2 = res
-        images2 = res
+        mainGlobalArray.tempImages2 = images2
+        //images2 = res
         print(images2)
         OptionsViewController().addCollectionView?.reloadData()
        // NSLog("Trying to send notification")

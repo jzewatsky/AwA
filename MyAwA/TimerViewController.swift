@@ -35,7 +35,7 @@ class TimerViewController: UIViewController{
     NSLog("TimerView - vierDidLoad")
         
     
-        self.preferredContentSize = CGSize(width: 680,height: 340)
+        self.preferredContentSize = CGSize(width: 280,height: 360)
         
 
         newTimerViewImage.image = UIImage(named: nexttimerViewImageString)
@@ -99,8 +99,6 @@ class TimerViewController: UIViewController{
         timerStepper.isHidden = true
         startTimer.isHidden = true
           timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(TimerViewController.update), userInfo: nil, repeats: true)
-        
-    
     }
     @objc func update() {
         NSLog("Update Time - %i seconds",time)
@@ -116,6 +114,7 @@ class TimerViewController: UIViewController{
             timer.invalidate()
             timerDoneLabel.isHidden = false
             timerStepper.value = 0
+            
                 }
             }
     @IBAction func timerStepperChange(_ stepper: UIStepper) {
@@ -135,9 +134,27 @@ class TimerViewController: UIViewController{
     
     @IBAction func nowNext(_ sender: AnyObject) {
 
-        self.preferredContentSize = CGSize(width: 680,height: 340)
         
-        newTimerViewImage.frame = CGRect(x: 385, y: 20, width: 250, height: 250)
+        print("Width is \(self.view.frame.width)")
+        if self.view.frame.width > 280{
+           print("Second Click")
+            
+            UIView.animate(withDuration: 1.00, animations: {
+                self.nextButton.transform = CGAffineTransform(rotationAngle: 0)
+                self.preferredContentSize = CGSize(width: 280,height: 360)
+            })
+            
+
+        }
+        else{
+           
+            UIView.animate(withDuration: 1.00, animations: {
+                self.nextButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                 self.preferredContentSize = CGSize(width: 500,height: 360)
+            })
+        }
+        
+        //newTimerViewImage.frame = CGRect(x: 385, y: 20, width: 250, height: 250)
         newTimerViewImage.image = UIImage(named: nexttimerViewImageString)
         
         self.view.addSubview(newTimerViewImage)

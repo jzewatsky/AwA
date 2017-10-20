@@ -132,8 +132,6 @@
 		C2BE83391D8DD89A00DCBF5A /* SavedArray+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE83351D8DD89A00DCBF5A /* SavedArray+CoreDataClass.swift */; };
 		C2BE833A1D8DD89A00DCBF5A /* SavedArray+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE83361D8DD89A00DCBF5A /* SavedArray+CoreDataProperties.swift */; };
 		C2BE833C1D8DE3D100DCBF5A /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE833B1D8DE3D000DCBF5A /* ImagePickerController.swift */; };
-		C2C0554E1A1861A400A13A9C /* Run_text.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C0554D1A1861A400A13A9C /* Run_text.png */; };
-		C2C055501A1861DE00A13A9C /* Listen_text.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C0554F1A1861DE00A13A9C /* Listen_text.png */; };
 		C2C5470D19A1A2260084F73F /* basketball2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C5470C19A1A2260084F73F /* basketball2.png */; };
 		C2E24D161AA69805005BF48B /* metal.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E24D151AA69805005BF48B /* metal.png */; };
 		C2E2DF6F1D1330A4002A0B28 /* SWIM_Backstroke.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C2E2DF6B1D1330A4002A0B28 /* SWIM_Backstroke.mp4 */; };
@@ -347,8 +345,6 @@
 		C2BE83361D8DD89A00DCBF5A /* SavedArray+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SavedArray+CoreDataProperties.swift"; path = "../SavedArray+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C2BE833B1D8DE3D000DCBF5A /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		C2BE833D1D8DE82D00DCBF5A /* FASF_Back*Float.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FASF_Back*Float.mp4"; sourceTree = "<group>"; };
-		C2C0554D1A1861A400A13A9C /* Run_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Run_text.png; path = "../../../Large PNG with Text/Run_text.png"; sourceTree = "<group>"; };
-		C2C0554F1A1861DE00A13A9C /* Listen_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Listen_text.png; path = "../../../Large PNG with Text/Listen_text.png"; sourceTree = "<group>"; };
 		C2C5470C19A1A2260084F73F /* basketball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basketball2.png; sourceTree = "<group>"; };
 		C2E24D151AA69805005BF48B /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
 		C2E2DF6B1D1330A4002A0B28 /* SWIM_Backstroke.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SWIM_Backstroke.mp4; sourceTree = "<group>"; };
@@ -563,11 +559,9 @@
 				C2F9EFDA19833D8B0061C30F /* Main.storyboard */,
 				C291218B1C88D5DB002D7D24 /* TakeABreak.swift */,
 				C25F36E11BC4D1990097291C /* inc_swim_swimschedule.jpg */,
-				C2C0554F1A1861DE00A13A9C /* Listen_text.png */,
 				C245C6CA1B31EF23003F4D78 /* No Time_text.png */,
 				C2AE5C8F1B6FCAE0002CC887 /* envelope.png */,
 				C245C6C81B31EEFD003F4D78 /* High five_text.png */,
-				C2C0554D1A1861A400A13A9C /* Run_text.png */,
 				C25F36B71BC22C370097291C /* blueBTN.png */,
 				C2A0EAD01A0710DA006A54CF /* 6_inc_sched_cleanup.png */,
 				C2A0EAD11A0710DA006A54CF /* 5_inc_sched_cooldown.png */,
@@ -854,7 +848,6 @@
 			files = (
 				C2A0EB051A08EC57006A54CF /* inc_fms_skip.png in Resources */,
 				C2F9EFFB1983406C0061C30F /* Suprise_text_white.jpg in Resources */,
-				C2C0554E1A1861A400A13A9C /* Run_text.png in Resources */,
 				C2A54EF71A87ED0B00ACBBA9 /* greenBTN.png in Resources */,
 				C2839DD319947840006E0158 /* FASF_Front*Float.mp4 in Resources */,
 				C2B668ED19C67EDF00512092 /* basetball.png in Resources */,
@@ -887,7 +880,6 @@
 				C2A0EB0D1A08EC57006A54CF /* inc_swim_backfloat.png in Resources */,
 				C2839DCE19947840006E0158 /* FMSF_Underhand*Throw.mp4 in Resources */,
 				C25F36C21BC4B34E0097291C /* inc_misc_compliment.png in Resources */,
-				C2C055501A1861DE00A13A9C /* Listen_text.png in Resources */,
 				C2A0EB171A08EC57006A54CF /* inc_swim_treadwater.png in Resources */,
 				C2839DD119947840006E0158 /* FMSC_Overhand*Throw.mp4 in Resources */,
 				C2A0EABF1A0502DB006A54CF /* FASF_Roll*From*Front*Float.mp4 in Resources */,
