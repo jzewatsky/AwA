@@ -23,7 +23,7 @@ class TimerViewController: UIViewController{
     @objc var aSwitch = String("A")
     @objc var newTimerViewImage = UIImageView()
     @IBOutlet weak var timerDoneLabel: UILabel!
-    @objc let ovalEndAngle = CGFloat(270 * M_PI/180)
+    @objc let ovalEndAngle = CGFloat(270 * Double.pi/180)
     @IBOutlet weak var timerViewImage: UIImageView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startTimer: UIButton!
@@ -58,7 +58,7 @@ class TimerViewController: UIViewController{
     @IBAction func timerStart(_ sender: AnyObject) {
                 // set up some values to use in the curve
         let progressLine = CAShapeLayer()
-        let ovalStartAngle = CGFloat(270.01 * M_PI/180)
+        let ovalStartAngle = CGFloat(270.01 * Double.pi/180)
         timerDoneLabel.isHidden = true
         let ovalRect = timerViewImage.frame
         

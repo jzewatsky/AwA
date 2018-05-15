@@ -203,10 +203,10 @@ class StoryTableView: UITableViewController {
     // Pass the selected object to the new view controller.
     }
     */
-    override func prepare(for segue: (UIStoryboardSegue!), sender: Any!)
+    override func prepare(for segue: (UIStoryboardSegue?), sender: Any!)
     {
 
-        if segue.identifier == "socialStorySegue"{
+        if segue?.identifier == "socialStorySegue"{
             print("socialStorySegue")
             //let StorySegue = segue.destination as! RootViewController
             

@@ -30,7 +30,7 @@ class addStoryCollectionViewCell: UICollectionViewCell {
     {
  //print("startJiggling was fired")
         
-        let fullRotation = CGFloat(M_PI * 2)
+        let fullRotation = CGFloat(CGFloat.pi * 2)
         
         UIView.animate(withDuration: 1.0, animations: {
             // animating `transform` allows us to change 2D geometry of the object

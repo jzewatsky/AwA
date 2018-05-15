@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                try managedObjectContext.save()
            } catch let error1 as NSError {
                error = error1
-            print("Error in saveContext \(error)")
+            print("Error in saveContext \(String(describing: error))")
                // Replace this implementation with code to handle the error appropriately.
                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                //println("Unresolved error \(error), \(error.userInfo)")
@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 try _persistentStoreCoordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
             } catch let error1 as NSError {
                 error = error1
-                print("persistentStoreCoordinator Error \(error)")
+                print("persistentStoreCoordinator Error \(String(describing: error))")
                 /*
                 Replace this implementation with code to handle the error appropriately.
 

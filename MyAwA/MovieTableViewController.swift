@@ -99,7 +99,11 @@ class MovieTableViewController: UITableViewController {
                    //let finalString = labelString.stringByDeletingPathExtension
                     let finalString = NSURL(fileURLWithPath: labelString).deletingPathExtension
                     let finalStringString = finalString?.absoluteString
-                    let theRealFinalString = finalStringString!.substring(from: finalStringString!.characters.index(finalStringString!.startIndex, offsetBy: 13))
+                    let index = finalStringString!.index(finalStringString!.startIndex, offsetBy: 13)
+                    let theRealFinalString = String(finalStringString![index...])
+                   
+                    //let theRealFinalString = finalStringString!.substring(from: finalStringString!.characters.index(finalStringString!.startIndex, offsetBy: 13))
+                    
                     //print("theRealFinalString - \(theRealFinalString) - finalStringString - \(finalStringString)")
                    // let theRealFinalString2 = finalString
                     let newString = theRealFinalString.replacingOccurrences(of: "*", with: " ", options: NSString.CompareOptions.literal, range: nil)

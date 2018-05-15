@@ -66,7 +66,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
         let manager2 = FileManager.default
         
         let filesArray2 = try? manager2.contentsOfDirectory(atPath: mainBundlePath)
-        print("The directory is \(mainBundlePath) and it has \(filesArray2)")
+        print("The directory is \(String(describing: mainBundlePath)) and it has \(String(describing: filesArray2))")
         for theFiles2 in filesArray2!{
             var fileString = String()
             fileString = theFiles2 
@@ -309,7 +309,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UITextFiel
     }
     
     
-    @objc func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
+    @objc private func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
     {
 
             

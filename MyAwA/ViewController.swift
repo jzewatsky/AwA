@@ -830,7 +830,7 @@ else{
     }
 
     
-    @objc func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> HomeCollectionViewCell!
+    @objc private func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> HomeCollectionViewCell!
     {
         
         
@@ -859,7 +859,7 @@ else{
             ////println("imageString = \(imageString)")
 
             let theImage = UIImage(named:imageString)
-            print("theImage from 'cellforitematindexpath' = \(theImage)")
+            print("theImage from 'cellforitematindexpath' = \(String(describing:  theImage))")
             cell.imageView!.image = theImage! as UIImage
             return cell
         }
@@ -1509,10 +1509,10 @@ else{
 }
 
     
-    override func prepare(for segue: (UIStoryboardSegue!), sender: Any!)
+    override func prepare(for segue: (UIStoryboardSegue?), sender: Any!)
     {
-        if segue.identifier == "playMovie2"{
-            let vc = segue.destination as! MoviePlayerViewController
+        if segue?.identifier == "playMovie2"{
+            let vc = segue?.destination as! MoviePlayerViewController
             vc.urlString = movieString as String
             //print("The string being sent to the movie controller from the view controller is \(movieString)")
             
@@ -1528,28 +1528,28 @@ else{
             GameController.theGameState = gameState
             
         }*/
-        if segue.identifier == "timerView"{
+        if segue?.identifier == "timerView"{
             ////NSLog("Move to timerView with timerImageString = %@", timerImageString)
-            let TV = segue.destination as! TimerViewController
+            let TV = segue?.destination as! TimerViewController
             TV.timerViewImageString = timerImageString
             TV.nexttimerViewImageString = nexttimerImageString
             TV.timerTime = timerTime
         }
-        if segue.identifier == "loadTableView"{
+        if segue?.identifier == "loadTableView"{
             //print("loadTableView segue")
         }
-        if segue.identifier == "loadSave"{
+        if segue?.identifier == "loadSave"{
             //print("loadSave segue")
         }
-        if segue.identifier == "infoPopover"{
+        if segue?.identifier == "infoPopover"{
             //print("infoPopover segue")
         }
-        if segue.identifier == "SettingsSegue"{
+        if segue?.identifier == "SettingsSegue"{
             ////println("SettingsSegue segue with image \(settingsImageString)")
-            let Settings = segue.destination as! SettingsController
+            let Settings = segue?.destination as! SettingsController
             Settings.settingsTag = setTag
         }
-        if segue.identifier == "segueGlobalTimerPopover"{
+        if segue?.identifier == "segueGlobalTimerPopover"{
             // let timer = segue.destination as! GlobalTimer
 
         }

@@ -33,7 +33,7 @@ class TakeABreak: UIViewController{
     @objc var whatisthefromtime = Double()
     @objc var animationProgress = Double()
     @objc var rotate = Bool(false)
-    @objc let ovalEndAngle = CGFloat(270 * M_PI/180)
+    @objc let ovalEndAngle = CGFloat(270 * Double.pi/180)
     @objc var ovalPath = UIBezierPath()
     @objc var ovalPath2 = UIBezierPath()
     @objc let progressLine = CAShapeLayer()
@@ -73,7 +73,7 @@ class TakeABreak: UIViewController{
     strokeLine.removeFromSuperlayer()*/
         // set up some values to use in the curve
 
-        let ovalStartAngle = CGFloat(270.01 * M_PI/180)
+        let ovalStartAngle = CGFloat(270.01 * Double.pi/180)
         timerDoneLabel.isHidden = true
 
 

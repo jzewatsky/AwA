@@ -73,7 +73,7 @@ func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: U
         }
     }
 
-@objc func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
+    @objc private func collectionView(_ collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: IndexPath!) -> UICollectionViewCell!
 {
     
     if collectionView.tag == 3
@@ -487,11 +487,11 @@ func collectionView(_ collectionView :UICollectionView, didSelectItemAt indexPat
         //swap(&scheduleSupport[sender.tag], &scheduleSupport[sender.tag - 1])
         copyCollectionView?.reloadData()
     }
-    override func prepare(for segue: (UIStoryboardSegue!), sender: Any!)
+    override func prepare(for segue: (UIStoryboardSegue?), sender: Any?)
     {
-        if segue.identifier == "optionsSegue"{
+        if segue?.identifier == "optionsSegue"{
             
-            let Settings = segue.destination as! SettingsController
+            let Settings = segue?.destination as! SettingsController
             let newTag = setTag + 1
             Settings.settingsTag = newTag
             Settings.settingsImageString = imageName as String

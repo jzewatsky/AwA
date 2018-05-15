@@ -55,13 +55,13 @@ class GlobalTimer: UIViewController{
       
     }
 */
-    override func prepare(for segue: (UIStoryboardSegue!), sender: Any!)
+    override func prepare(for segue: (UIStoryboardSegue?), sender: Any!)
     {
-        if segue.identifier == "stopGlobalTimerSegue"{
+        if segue?.identifier == "stopGlobalTimerSegue"{
             print("stopGlobalTimer segue in GlobalTimer fired")
 
         }
-        if segue.identifier == "startGlobalTimerSegue"{
+        if segue?.identifier == "startGlobalTimerSegue"{
             print("startGlobalTimer segue in GlobalTimer fired")
 
             

@@ -58,8 +58,11 @@ override func viewDidLoad() {
     }
     if settingsSupport.pathExtension == "mp4"
     {
+       
         let finalString = settingsSupport.deletingPathExtension
-        let theRealFinalString = (finalString.substring(from: finalString.characters.index(finalString.startIndex, offsetBy: 5)))
+        let index = finalString.index(finalString.startIndex, offsetBy: 13)
+        let theRealFinalString = String(finalString[index...])
+        //let theRealFinalString = (finalString.substring(from: finalString.characters.index(finalString.startIndex, offsetBy: 5)))
         let newString = theRealFinalString.replacingOccurrences(of: "*", with: " ", options: NSString.CompareOptions.literal, range: nil)
         SupportLabel.text = newString
     }
@@ -140,11 +143,13 @@ override func viewDidLoad() {
         if PickerSegmentedControl.selectedSegmentIndex == 2{
             let MovieRowLabel = SettingsMovieTitles[row] as! String
             //let finalString = NSURL(fileURLWithPath: MovieRowLabel).URLByDeletingPathExtension
-            let removePath = MovieRowLabel.characters.index(MovieRowLabel.endIndex, offsetBy: -4)
-            var finalStringString = MovieRowLabel.substring(to: removePath)
+         
+            
+            let removePath = MovieRowLabel.index(MovieRowLabel.endIndex, offsetBy: -4)
+            var finalStringString = String(MovieRowLabel[...removePath])
             print("segmentedControl string = \(finalStringString) & MovieRowLabel = \(MovieRowLabel)")
             //finalStringString = finalStringString.stringByDeletingPathExtension
-            let characterAt3 = finalStringString.characters.index(finalStringString.characters.startIndex, offsetBy: 3)
+            let characterAt3 = finalStringString.index(finalStringString.startIndex, offsetBy: 3)
             print("character at 3 in string is \(finalStringString[characterAt3])")
             if finalStringString[characterAt3] == "C"{
                 print("4th character is c, add Clip to title")
@@ -152,8 +157,8 @@ override func viewDidLoad() {
                 finalStringString = finalStringString + clipString
                 
             }
-            let advance = finalStringString.characters.index(finalStringString.startIndex, offsetBy: 5)
-            let theRealFinalString = finalStringString.substring(from: advance)
+            let advance = finalStringString.index(finalStringString.startIndex, offsetBy: 5)
+            let theRealFinalString = String(finalStringString[advance...])
             print("theRealFinalString = \(theRealFinalString)")
             
             //(advanceBy(finalString.startIndex, count))
@@ -197,7 +202,7 @@ override func viewDidLoad() {
         
         if PickerSegmentedControl.selectedSegmentIndex == 0{
            let testLabel = (((StoryResultsArray[row]) as AnyObject).value(forKey: "storyName"))
-            print("The story selected is \(testLabel)")
+            print("The story selected is \(String(describing: testLabel))")
             selectedLabel = testLabel as! NSString
             selectedStory = selectedLabel
         }
@@ -218,7 +223,7 @@ override func viewDidLoad() {
             selectedStory = SettingsMovieTitles[row] as! String as NSString
                 print("The selected story is: \(selectedStory)")
                 var finalString = selectedStory.deletingPathExtension
-                let characterAt3 = finalString.characters.index(finalString.characters.startIndex, offsetBy: 3)
+                let characterAt3 = finalString.index(finalString.startIndex, offsetBy: 3)
                 print("character at 3 in string is \(finalString[characterAt3])")
                 if finalString[characterAt3] == "C"{
                     print("4th character is c, add Clip to title")
@@ -226,8 +231,8 @@ override func viewDidLoad() {
                     finalString = finalString + clipString
                 
                 }
-                let advance = finalString.characters.index(finalString.startIndex, offsetBy: 5)
-                let theRealFinalString = finalString.substring(from: advance)
+                let advance = finalString.index(finalString.startIndex, offsetBy: 5)
+                let theRealFinalString = String(finalString[advance...])
                 
                 //(advanceBy(finalString.startIndex, count))
                 //let theRealFinalString = (finalString.substringFromIndex(finalString.startIndex.advancedBy(13)))
@@ -268,15 +273,15 @@ else
         scheduleTimes.remove(at: settingsTag)
     
     }
-    override func prepare(for segue: (UIStoryboardSegue!), sender: Any!)
+    override func prepare(for segue: (UIStoryboardSegue?), sender: Any!)
     {
-    if segue.identifier == "SaveSettings"{
+        if segue?.identifier == "SaveSettings"{
         images2[settingsTag] = settingsImageString as NSString
         scheduleSupport[settingsTag] = selectedStory
         scheduleTimes[settingsTag] = Int(timeStepper.value)
         OptionsViewController().copyCollectionView?.reloadData()    
     }
-        if segue.identifier == "Exit"{
+        if segue?.identifier == "Exit"{
         
         }
     }
